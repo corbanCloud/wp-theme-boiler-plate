@@ -1,0 +1,22 @@
+/**
+ * assigns a given property, 
+ * removes the left value from the first element,
+ * removes the right value from the last element.
+ * 
+ * @param  string 	$prop 	css property to set
+ * @param  string	$val 	css value to set
+ * @return none
+ */
+@mixin trim-sides($prop, $val){
+	
+	#{$prop} : $val;
+
+	&:first-of-type{
+		#{$prop}-left : 0;
+	}
+	
+	&:last-of-type{
+		#{$prop}-right : 0;
+	}
+	
+}

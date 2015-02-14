@@ -1,0 +1,10 @@
+
+@mixin responsive-type-style($font, $type){
+	//Set the default styles
+	font : normal get-type-style(phone, $type) $font;
+	//Set breakpoint styles
+	@include media-type-style('tablet', $type, $tablet-only);
+	@include media-type-style('laptop', $type, $laptop);
+	@include media-type-style('desktop', $type, $desktop);
+	
+}

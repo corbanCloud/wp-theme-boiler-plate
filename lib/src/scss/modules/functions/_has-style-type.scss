@@ -1,0 +1,3 @@
+@function has-type-style($breakpoint, $type){
+	@return map-has-key(map-get($type-styles, $breakpoint), $type);
+}

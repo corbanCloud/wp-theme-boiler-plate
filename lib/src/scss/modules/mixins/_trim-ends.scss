@@ -1,0 +1,22 @@
+/**
+ * Assigns a given property, 
+ * removes the top value from the first element,
+ * removes the bottom value from the last element.
+ * 
+ * @param  string 	$prop 	css property to set
+ * @param  string	$val 	css value to set
+ * @return none
+ */
+@mixin trim-ends($prop, $val){
+
+	#{$prop} : $val;
+
+	&:first-of-type{
+		#{$prop}-top : 0;
+	}
+	
+	&:last-of-type{
+		#{$prop}-bottom : 0;
+	}
+
+}

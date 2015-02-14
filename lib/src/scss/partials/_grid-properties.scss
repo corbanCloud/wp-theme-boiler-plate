@@ -1,0 +1,31 @@
+header, section, footer, .row{
+	@include row;
+}
+.container, section{
+	@include outer-container;
+	min-width: 100%;
+		// padding : {
+		// 	left: 15px;
+		// 	right: 15px;
+		// }
+
+		
+	// @include media($tablet){
+	// 	padding : {
+	// 		left: 30px;
+	// 		right: 30px;
+	// 	}
+	// }
+	// @include media($laptop){
+	// 	padding : {
+	// 		left: 60px;
+	// 		right: 60px;
+	// 	}
+	// }
+	// @include media($desktop){
+	// 	padding : {
+	// 		left: 90px;
+	// 		right: 90px;
+	// 	}
+	// }
+}	

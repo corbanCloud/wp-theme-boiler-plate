@@ -1,0 +1,25 @@
+/**
+ * Sets a background image on an element.
+ * @param  number varname    default       description
+ * @param  string $url       ''            url of the image to use
+ * @param  number $size:     100%          size to set background to
+ * @param  number $position: 50%           background postion 
+ * @param  string $repeat:   no-repeat     background repeat value
+ * @param  string $attach:   scroll        background attachment
+ * @return none
+ */
+@mixin bg-img(
+	$url : '', 
+	$size: contain, 
+	$position: 50%, 
+	$repeat: no-repeat, 
+	$attach: scroll){
+	
+	background: {
+		image: url($url);
+		position: $position;
+		size: $size;
+		repeat: $repeat;
+		attachment: $attach;
+	}
+}

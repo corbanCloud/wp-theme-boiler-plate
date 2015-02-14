@@ -1,0 +1,23 @@
+// Break Point Definitions
+
+// //Where Each breakpoint should start
+$tablet-start  : 640px;
+$laptop-start  : 1080px;
+$desktop-start : 1440px;
+
+// //How many columns each breakpoint should have
+$phone-columns   : 6;
+$tablet-columns  : 12;
+$laptop-columns  : 12;
+$desktop-columns : 12;
+
+// //Break Point definitions
+$phone-only  : max-width $tablet-start - 1,  6;
+
+$tablet      : min-width $tablet-start, $tablet-columns;
+$tablet-only : min-width $tablet-start max-width ($laptop-start - 1), $tablet-columns;
+
+$laptop      : min-width $laptop-start, $laptop-columns;
+$laptop-only : max-width $laptop-start max-width ($desktop-start - 1), $laptop-columns;
+
+$desktop     : min-width $desktop-start, $desktop-columns;

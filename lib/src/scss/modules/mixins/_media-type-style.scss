@@ -1,0 +1,8 @@
+@mixin media-type-style($breakpoint-name, $type, $neat-break-point){
+	@if(has-type-style($breakpoint-name, $type)){
+		@include media($neat-break-point){
+			font : normal get-type-style($breakpoint-name, $type) $open-sans;
+				
+		}
+	}
+}

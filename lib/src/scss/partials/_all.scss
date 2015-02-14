@@ -1,0 +1,16 @@
+// Partials includer
+
+//Scaffolding
+@import "typography";
+@import "grid-properties";
+
+// Global Styles
+@import "wp-defaults";
+@import "globals";
+@import "header";
+@import "footer";
+
+//Pages
+@import "front-page";
+
+//Parts

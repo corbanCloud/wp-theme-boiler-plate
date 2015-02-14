@@ -1,0 +1,10 @@
+//Get all settings modules and mixins
+@import "modules/all";
+
+// get vendor resources
+@import "vendor/bourbon/bourbon";
+@import "vendor/neat/neat";
+@import "vendor/base/base";
+
+// get styles
+@import "partials/all";

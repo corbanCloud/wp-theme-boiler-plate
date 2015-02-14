@@ -1,0 +1,43 @@
+$regular    : 400;
+$semi-bold  : 600;
+$bold       : 700;
+$extra-bold : 800;
+
+$type-styles : ( 
+	phone : (
+		
+		header-1   : $regular 32px/41px,
+		header-2   : $regular 32px/41px,
+		header-3   : $extra-bold 22px/25px,
+		header-4   : $bold 18px/25px,
+		header-5   : $regular 18px/25px,
+		header-6   : $bold 16px/24px,
+		intro      : $semi-bold 16px/24px,
+		copy       : $regular 16px/18px,
+		blockquote : $regular 15px/39px
+
+	),
+	tablet :  (
+		header-1   : $regular 44px/61px,
+		header-2   : $regular 44px/61px,
+		header-3   : $extra-bold 36px/38.75px,
+		header-4   : $bold 28px/39px,
+		header-5   : $regular 28px/39px,
+		header-6   : $bold 23px/36px,
+		intro      : $semi-bold 22px/38px,
+		copy       : $regular 18px/21px,
+		blockquote : $regular 23px/30px
+	),
+	laptop: (
+		header-1   : $regular 60px/81px,
+		header-2   : $regular 60px/81px,
+		header-3   : $extra-bold 44px/50px,
+		header-4   : $bold 34px/50px,
+		header-5   : $regular 34px/50px,
+		header-6   : $bold 30px/48px,
+		intro      : $semi-bold 29px/50px,
+		copy       : $regular 24px/30px,
+		blockquote : $regular 30px/39px
+	),
+	desktop : () 
+);
