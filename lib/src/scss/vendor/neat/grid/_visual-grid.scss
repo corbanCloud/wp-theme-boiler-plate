@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 @mixin grid-column-gradient($values...) {
   background-image: -webkit-linear-gradient(left, $values);
   background-image: -moz-linear-gradient(left, $values);
@@ -10,18 +8,18 @@
 
 @if $visual-grid == true or $visual-grid == yes {
   body:before {
-    @include grid-column-gradient(gradient-stops($grid-columns));
-    content: "";
+    content: '';
     display: inline-block;
+    @include grid-column-gradient(gradient-stops($grid-columns));
     height: 100%;
     left: 0;
     margin: 0 auto;
     max-width: $max-width;
     opacity: $visual-grid-opacity;
-    pointer-events: none;
     position: fixed;
     right: 0;
     width: 100%;
+    pointer-events: none;
 
     @if $visual-grid-index == back {
       z-index: -1;
