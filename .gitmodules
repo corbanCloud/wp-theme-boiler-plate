@@ -1,0 +1,3 @@
+[submodule "lib/gulp-file"]
+	path = lib/gulp-file
+	url = https://github.com/corbanCloud/gulp-file.git
