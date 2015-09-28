@@ -12,7 +12,7 @@
 
 /**
  * Shortcuts the addition of theme resources
- * includes NTR assets by default
+ * includes some default theme assets
  */
 
 require_once 'class-custom-post-type.php';
@@ -39,7 +39,7 @@ trait assetHelpers
 			//Style Resources
 			$this->styles[] = array(
 				'slug' => $this->prefix . 'styles',
-				'path' => $public_lib . 'css/master.css',
+				'path' => $source_lib . 'css/master.css',
 				'deps' => array()
 			);
 			
@@ -55,22 +55,33 @@ trait assetHelpers
 				'deps' => array( $this->prefix . 'styles', $this->prefix . 'scss')
 			);
 		
-
+	
 			$this->scripts[] = array(
-					'slug' => $this->prefix . 'scripts',
-					'path' => $public_lib . 'js/scripts.js',
-					'deps' => array(
-						'jquery'
-					)
-			);
-			$this->scripts[] = array(
-				'slug' => $this->prefix . 'script-map',
-				'path' => $source_lib . 'maps/scripts.js.map',
+				'slug' => $this->prefix . 'plugins',
+				'path' => $source_lib . 'js/plugins.js',
 				'deps' => array(
-					'jquery',
-					$this->prefix . 'scripts'
+					'jquery'
 				)
 			);
+
+			$this->scripts[] = array(
+				'slug' => $this->prefix . 'the-script',
+				'path' => $source_lib . 'js/script.js',
+				'deps' => array(
+					'jquery'
+				)
+			);
+
+
+
+			// $this->scripts[] = array(
+			// 	'slug' => $this->prefix . 'script-map',
+			// 	'path' => $source_lib . 'maps/scripts.js.map',
+			// 	'deps' => array(
+			// 		'jquery',
+			// 		$this->prefix . 'script'
+			// 	)
+			// );
 	
 		// Otherwise load only minified assets
 		} else {
@@ -83,7 +94,7 @@ trait assetHelpers
 
 			$this->scripts[] = array(
 					'slug' => $this->prefix . 'scripts-min',
-					'path' => $public_lib . 'js/scripts.min.js',
+					'path' => $public_lib . 'js/master.min.js',
 					'deps' => array(
 						'jquery'
 					)
@@ -93,10 +104,7 @@ trait assetHelpers
 		
 		$this->add_wp_script('jquery');
 		
-		add_action('wp_enqueue_scripts', array(
-			$this,
-			'theme_assets_handler'
-		));
+		add_action('wp_enqueue_scripts', array( $this, 'theme_assets_handler' ));
 	}
 	
 	/**
@@ -138,7 +146,8 @@ trait assetHelpers
 	 * @param string $slug the script to require
 	 */
 	public function add_wp_script($slug) {
-		array_push($this->wp_scripts, $slug);
+		if(is_array($this->wp_scripts))
+			array_push($this->wp_scripts, $slug);
 	}
 	
 	/**
@@ -147,21 +156,29 @@ trait assetHelpers
 	 */
 	public function theme_assets_handler() {
 		
+		$version = wp_get_theme()->get('Version');
+
 		//Enqueue stylesheets
 		foreach ($this->styles as $style) {
-			wp_register_style($this->prefix . $style['slug'], get_template_directory_uri() . $style['path'], $style['deps']);
+			wp_register_style($this->prefix . $style['slug'], get_template_directory_uri() . $style['path'], $style['deps'], $version);
 			wp_enqueue_style($this->prefix . $style['slug']);
+
+
+
 		}
 		
 		//Enqueue Scripts
 		foreach ($this->scripts as $script) {
-			wp_register_script($this->prefix . $script['slug'], get_template_directory_uri() . $script['path'], $script['deps']);
+			wp_register_script($this->prefix . $script['slug'], get_template_directory_uri() . $script['path'], $script['deps'], $version);
 			wp_enqueue_script($this->prefix . $script['slug']);
 		}
 		
 		//Enqueue WP Scripts
-		foreach ($this->wp_scripts as $script) {
-			wp_enqueue_script($script);
+		if(is_array($this->wp_scripts)){
+			
+			foreach ($this->wp_scripts as $script) {
+				wp_enqueue_script($script);
+			}
 		}
 	}
 }

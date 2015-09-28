@@ -26,20 +26,20 @@ trait adminHelpers{
 	 * @param  mixed  $supports [description]
 	 * @return [type]           [description]
 	 */
-	public function add_support( $supports ){
+	public function add_support( $supports, $args = null ){
 		if(is_array($supports)){
 			foreach ($supports as $support) {
-				add_theme_support($support);
+				add_theme_support($support, $args);
 			}
 		} else {
-			add_theme_support($supports);
+			add_theme_support($supports, $args);
 		}
 		return true;
 	}
 
 	/**
 	 * adds a given page(s) to the list of pages to hide from non-admin users
-	 * @return [type] [description]
+	 * @return none
 	 */
 	public function admin_hide_page($pages = ''){
 		$pages = (is_array($pages))? $pages : array($pages);
@@ -48,7 +48,7 @@ trait adminHelpers{
 
 	/**
 	 * hides all pages in the admin only list from non-admin usersz
-	 * @return [type] [description]
+	 * @return none
 	 */
 	public function hide_pages(){
 

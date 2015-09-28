@@ -4,7 +4,7 @@ require_once (dirname(__FILE__) . "/trait-string-manipulators.php");
 
 $cpt_count = 0;
 
-class CustomPostType{
+class CustomPostType {
 
 	use stringManipulators;
 
@@ -55,9 +55,9 @@ class CustomPostType{
 			return $given_labels;
 		} else {
 			if( array_key_exists('labels', $given_args)){
-			return $given_args['labels'];
+				return $given_args['labels'];
 			} else {
-			return array();
+				return array();
 			}
 		}
 			
@@ -87,7 +87,7 @@ class CustomPostType{
 			'description'         => "The Custom Post Type for $this->pluralized_name",
 			'supports'            => array( 'title', 'revisions', 'page-attributes'),
 			'taxonomies'          => array(),
-			'hierarchical'        => false,
+			'hierarchical'        => true,
 			'public'              => true,
 			'show_ui'             => true,
 			'show_in_menu'        => true,
@@ -99,6 +99,9 @@ class CustomPostType{
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'capability_type'     => 'page',
+			'rewrite'             => array (
+				'slug' => $this->sanitized_name . '-archive'
+				)
 		);
 		
 		//Merge labels

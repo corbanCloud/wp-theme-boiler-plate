@@ -38,44 +38,5 @@ global $Tools;
   <![endif]-->
 
 	<header role="banner" class="main-header">
-		
-		<div class="color-bar">
-			<div class="color-bar__block color-bar__block--red"></div>
-			<div class="color-bar__block color-bar__block--green"></div>
-			<div class="color-bar__block color-bar__block--orange"></div>
-			<div class="color-bar__block color-bar__block--blue"></div>
-		</div>
-
-		<h1 class="logo">
-			<a class="" href="/">
-				ShopBox 
-			</a>
-		</h1>
-
-		<?php   
-			/**
-			* Displays a navigation menu
-			* @param array $args Arguments
-			*/
-			$args = array(
-				'theme_location' => '',
-				'menu' => '',
-				'container' => 'nav',
-				'container_class' => 'menu-{menu-slug}-container',
-				'container_id' => '',
-				'menu_class' => 'menu',
-				'menu_id' => '2',
-				'echo' => true,
-				'fallback_cb' => 'wp_page_menu',
-				'before' => '',
-				'after' => '',
-				'link_before' => '',
-				'link_after' => '',
-				'items_wrap' => '<ul id = "%1$s" class = "%2$s">%3$s</ul>',
-				'depth' => 0,
-				'walker' => ''
-			);
-		
-			wp_nav_menu( $args ); ?>
-
+	
 	</header>

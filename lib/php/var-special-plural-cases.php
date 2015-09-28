@@ -1,6 +1,12 @@
 <?php 
+/**
+ * A list of englishs words whose plural is a nonstandard form.
+ * This is referenced by the custom post type class to synthesize labels given a singular name
+ * 
+ * @var $special_plural_cases array
+ */
 $special_plural_cases = array(		
-'addendum' => 'addenda',
+'addendum'    => 'addenda',
 'aircraft'    => 'aircraft',
 'alumna'      => 'alumnae',
 'alumnus'     => 'alumni',
@@ -99,7 +105,7 @@ $special_plural_cases = array(
 'sheep'       => 'sheep',
 'shrimp'      => 'shrimp',
 'species'     => 'species',
-'staff' => 'staff',
+'staff'       => 'staff',
 'stimulus'    => 'stimuli',
 'stratum'     => 'strata',
 'swine'       => 'swine',

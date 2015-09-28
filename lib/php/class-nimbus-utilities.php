@@ -7,15 +7,23 @@ include_once "trait-html-helpers.php";
 /**
 * 
 */
-class NimbusUtilities
-{
+abstract class NimbusUtilities {
 	use stringManipulators;
 	use postHelpers;
 	use htmlHelpers;
 
 
 	function __construct(){}
+	
+	public function debug_to_console ($data) {
 
+		if(is_array($data)){
+			$data = json_encode($data);
+		}
+
+		echo '<script>console.log(' . $data . ')</script>';
+
+	}
 };
 
 

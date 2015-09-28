@@ -6,11 +6,8 @@ include "trait-admin-helpers.php";
 //include "trait-post-helpers.php";
 //include "trait-html-helpers.php";
 
-/**
-* 
-*/
-class NimbusTheme
-{
+
+abstract class NimbusTheme {
 	use stringManipulators;
 	use assetHelpers;
 	use adminHelpers;
